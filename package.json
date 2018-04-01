@@ -1,0 +1,27 @@
+{
+  "name": "quick_circuits",
+  "version": "1.0.0",
+  "description": "JS program to prototype and test circuits",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nishant2604/Project_Diode.git"
+  },
+  "keywords": [
+    "Circuits",
+    "JavaScript",
+    "KonvaJS"
+  ],
+  "author": "Nishant Nischaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nishant2604/Project_Diode/issues"
+  },
+  "homepage": "https://github.com/Nishant2604/Project_Diode#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

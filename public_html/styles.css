@@ -1,0 +1,126 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+.container-fluid{
+    padding: 0px;
+}
+
+.navbar{
+    background-color: #1a78c2;
+}
+
+.navbar-toggler{
+    position: relative;
+    top: 5px;
+    font-size:1.5em;
+    color: white;
+    background-color: #1a78c2;
+}
+
+#mySidebar{
+    background-color: #2196f3;
+    color: white;
+}
+
+.w3-bar-item{ 
+    font-size: 10pt;
+}
+
+.w3-bar-item:hover { 
+    text-decoration: none;
+}
+
+.savedSnap{
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+}
+
+.propertybar{
+    display: block;
+    padding: 0px;
+    background-color: #e0e0e0;
+    position: relative;
+    /* border: 1px solid black; */
+}
+
+#propertybarClosed{
+    display: none;
+    padding: 0px;
+}
+
+#canvas{
+    background-size: auto;
+    border: 1px solid rgb(219, 212, 212);
+}
+
+.sectitle{
+    background-color: #2196f3;
+}
+
+#wrapper{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    padding: 15px;
+}
+
+.btn-toolbar{
+    margin: 30px;
+    margin-left: 40px;
+}
+
+.toolbox{
+    padding: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-toggler{
+    position: relative;
+    top: 5px;
+    font-size:1.2em;
+    }
+
+    .profile{
+    font-size:1em;
+    }
+}
+
+li{
+    list-style: none;
+}
+
+ul{
+    padding: 0px;
+    margin: 0px
+}
+
+.listbutton{
+    background-color: #0197f6; 
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.listbutton:hover{
+    background-color: #02182b; 
+}
+
+.btnlist{
+    background-color: #2196f3;
+}
+
+.profile{
+    cursor: pointer;
+}
+
+#propic{
+    border-radius: 50%;
+}

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quick Circuits</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
+    <link rel="stylesheet" href="mdb.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/4.0.1/math.min.js"></script>
+</head>
+<body>
+    
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large" onclick="sidebarClose()">
+            <div style="font-size:1.5em; color: white; position: relative; top: 5px;">
+                <i class="fas fa-arrow-left"></i>
+                &nbsp; Saved Circuits
+            </div>
+            <hr>
+        </button>
+        <ul id="list">
+            <!-- items come here -->
+        </ul>
+    </div>
+
+    <div id="main">
+        <header>
+            <div class="container-fluid">
+                <nav class="navbar">
+                    <button id="openNav" class="navbar-toggler text-center" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation" onclick="sidebarOpen()">
+                        <span class="navbar-toggler-icon">
+                            <i class="fas fa-bars"></i>
+                        </span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="color: white">Quick Circuits</a>
+                    <div class="profile" style="font-size:2em; color: white">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="container-fluid">
+                <div class="row" style="height: 100vh;">
+                    <div class="col-2 toolbox">
+                        <span style="font-size: 1rem; color: white">
+                            <div class="sectitle">
+                                <span style="font-size: 10pt">
+                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="fab fa-elementor"></i>
+                                    &nbsp;&nbsp; Circuit Elements
+                                </span>
+                            </div>
+                        </span>
+
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <button type="button" class="btn btn-light" data-balloon="wire" data-balloon-pos="up" id="wire">
+                                    <img src="./assets/icons/029-minus.png">
+                                </button>
+                                <button type="button" class="btn btn-light" data-balloon="resistor" data-balloon-pos="up" id="resistor">
+                                    <img src="./assets/icons/032-resistor.png">
+                                </button>
+                            </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Second group">
+                                <button type="button" class="btn btn-light" data-balloon="cell" data-balloon-pos="up" id="cell">
+                                    <img src="./assets/icons/023-cell.png">
+                                </button>
+                                <button type="button" class="btn btn-light" data-balloon="battery" data-balloon-pos="up" id="battery">
+                                    <img src="./assets/icons/021-battery.png">
+                                </button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Third group">
+                                <button type="button" class="btn btn-light" data-balloon="lamp" data-balloon-pos="up" id="lamp">
+                                    <img src="./assets/icons/019-lamp.png">
+                                </button>
+                                <button type="button" class="btn btn-light" data-balloon="diode" data-balloon-pos="up" id="diode">
+                                    <img src="./assets/icons/031-diode.png">
+                                </button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Fourth group">
+                                <button type="button" class="btn btn-light" data-balloon="Switch(closed)" data-balloon-pos="up" id="switchC">
+                                    <img src="./assets/icons/024-switch-1.png">
+                                </button>
+                                <button type="button" class="btn btn-light" data-balloon="Switch(open)" data-balloon-pos="up" id="switchO">
+                                    <img src="./assets/icons/028-switch.png">
+                                </button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Fifth group">
+                                <button type="button" class="btn btn-light" data-balloon="capacitor" data-balloon-pos="up" id="capacitor">
+                                    <img src="./assets/icons/008-capacitor.png">
+                                </button>
+                                <button type="button" class="btn btn-light" data-balloon="inductor" data-balloon-pos="up" id="inductor">
+                                    <img src="./assets/icons/012-inductor.png">
+                                </button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Sixth group">
+                                <button type="button" class="btn btn-light" data-balloon="voltmeter" data-balloon-pos="up" id="voltmeter">
+                                    <img src="./assets/icons/014-voltmeter.png">
+                                </button>
+                                <button type="button" class="btn btn-light" data-balloon="ammeter" data-balloon-pos="up" id="ammeter">
+                                    <img src="./assets/icons/017-ammeter.png">
+                                </button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Sixth group">
+                                <button type="button" class="btn btn-light" data-balloon="galvanometer" data-balloon-pos="up" id="galvanometer">
+                                    <img src="./assets/icons/020-galvanometer.png">
+                                </button>
+                                <button type="button" class="btn btn-light" data-balloon="ground" data-balloon-pos="up" id="ground">
+                                    <img src="./assets/icons/009-ground.png">
+                                </button>
+                            </div><div class="btn-group" role="group" aria-label="Seventh group">
+                                <button type="button" class="btn btn-light" data-balloon="transformer" data-balloon-pos="up" id="transformer">
+                                    <img src="./assets/icons/003-transformer-1.png">
+                                </button>
+                                <button type="button" class="btn btn-light" data-balloon="rheostat" data-balloon-pos="up" id="rheostat">
+                                    <img src="./assets/icons/004-attenuator.png">
+                                </button>
+                            </div>
+                        </div>
+
+                        <span style="font-size: 1rem; color: white">
+                            <div class="sectitle">
+                                <span style="font-size: 10pt">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="fas fa-wrench"></i>
+                                    &nbsp;&nbsp; Tools
+                                </span>
+                            </div>
+                        </span>
+
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <button class="w3-button w3-light-grey" data-toggle="modal" data-target="#exampleModalCenter" data-balloon="new" data-balloon-pos="down" id="new" style="font-size: 1rem; border-radius: 5px; margin-top: 5px; margin-right: 5px;">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                            <button class="w3-button w3-light-grey" data-balloon="save" data-balloon-pos="down" id="save" style="font-size: 1rem; border-radius: 5px; margin-top: 5px; margin-right: 5px;">
+                                <i class="fas fa-save"></i>
+                            </button>
+                            <button class="w3-button w3-light-grey" data-balloon="download" data-balloon-pos="down" id="download" style="font-size: 1rem; border-radius: 5px; margin-top: 5px; margin-right: 5px;">
+                                <i class="fas fa-download"></i>
+                            </button>
+                            <button class="w3-button w3-light-grey" data-balloon="marker" data-balloon-pos="down" id="marker" style="font-size: 1rem; border-radius: 5px; margin-top: 5px; margin-right: 5px;">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                            <button class="w3-button w3-light-grey" data-balloon="eraser" data-balloon-pos="down" id="eraser" style="font-size: 1rem; border-radius: 5px; margin-top: 5px; margin-right: 5px;">
+                                <i class="fas fa-eraser"></i>
+                            </button>
+                            <button class="w3-button w3-light-grey" data-balloon="text" data-balloon-pos="down" id="text" style="font-size: 1rem; border-radius: 5px; margin-top: 5px; margin-right: 5px;">
+                                <i class="fas fa-font"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-8" id="canvas">
+                
+                    </div>
+
+                    <div class="col-2 propertybar" id="propertybar">
+                        <span style="font-size: 1rem; color: white">
+                            <div class="sectitle">
+                                &nbsp;&nbsp;<i class="fas fa-check-circle"></i>
+                                <span style="font-size: 10pt">
+                                    &nbsp;&nbsp; Circuit Solver
+                                </span>
+                            </div>
+                        </span>
+                        <div class="alert alert-light" role="alert">
+                            <button class="w3-button w3-light-grey"  data-balloon="insert nodes" data-balloon-pos="down" id="node">
+                                <i class="fas fa-dot-circle"></i>
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click to put nodes
+                            </button>
+                        </div>
+                        <h5>&nbsp;&nbsp;&nbsp;Node Resistances</h5>
+                        <table class="table" id="makeEditable1">
+                            <span style="float:left">
+                                &nbsp;<button id="but_add1" style="font-size: 10px">Add Row</button>
+                            </span>
+                            <thead>
+                                <th>
+                                    <b>A</b>
+                                </th>
+                                <th>
+                                    <b>B</b>
+                                </th>
+                                <th>
+                                    <b>R</b>
+                                </th>
+                            </thead>
+                            <tbody>
+                        </table>
+
+                        <hr>
+
+                        <h5>&nbsp;&nbsp;&nbsp;Node Voltages</h5>
+                        <table class="table" id="makeEditable2">
+                            <span style="float:left">
+                                &nbsp;
+                                <button id="but_add2" style="font-size: 10px">Add Row</button>
+                            </span>
+                            <thead>
+                                <th>
+                                    <b>Node</b>
+                                </th>
+                                <th>
+                                    <b>V</b>
+                                </th>
+                            </thead>
+                            <tbody>
+                        </table>
+
+                        <hr>
+                        <div class="alert alert-light" role="alert">
+                            <button class="w3-button w3-blue" data-balloon="Hit play!" data-balloon-pos="down" id="solve">
+                                <i class="fas fa-play"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solve Circuit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <hr style="margin: 0px">
+
+        <!--Footer-->
+        <footer class="page-footer font-small blue pt-4 mt-4">
+        
+            <!--Footer Links-->
+            <div class="container-fluid text-center text-md-left">
+                <div class="row">
+        
+                    <!--First column-->
+                    <div class="col-md-6">
+                        <h5 class="text-uppercase">&nbsp; Author: Nishant Nischaya</h5>
+                        <p>&nbsp; Nishant Nischaya is an undergrad who likes to spend most of his time making stuff like this<br>
+                            &nbsp;<i> (Ofcourse only when there is no Cricket to follow on TV)</i>.</p>
+                        </p>
+                    </div>
+                    <!--/.First column-->
+        
+                    <!--Second column-->
+                    <div class="col-md-6" style="font-size:1.5em">
+                        <h5 class="text-uppercase">Find me at:</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="https://www.facebook.com/nishant.nischaya">
+                                    <i class="fab fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/Nishant2604">
+                                        <i class="fab fa-github-square"></i>    
+                                        Github
+                                    </a>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/nishant-nischaya-326b3bba/">
+                                    <i class="fab fa-linkedin"></i>
+                                    LinkedIn
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/.Second column-->
+                </div>
+            </div>
+            <!--/.Footer Links-->
+        
+            <!--Copyright-->
+            <div class="footer-copyright py-3 text-center">
+                © 2018 Copyright:
+                <a href="#"> QuickCircuits.com </a>
+            </div>
+            <!--/.Copyright-->
+        
+        </footer>
+        <!--/.Footer-->
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Save Circuit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        Name the circuit and save it. It would be available in the sidebar to be loaded later.
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Name</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="e.g. Awesome Circuit" id="namefield">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="savechanges()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModaldata-toggle="modal" data-target="#exampleModalCenter"" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">New Circuit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    The current unsaved canvas would no longer be available. Do you still want to proceed?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="refresh()">New</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Solution</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul id="solList">
+                        <!-- solution goes here -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="profilemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">User Info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="img_avatar.png" id="propic" alt="Avatar" style="width:200px">
+                    <h5 style="display : inline-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name: Nishant Nischaya</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+    <script src="https://cdn.rawgit.com/konvajs/konva/2.0.1/konva.min.js"></script>
+    <script src="bootstable.js"></script>
+    <script src="layout.js"></script>
+    <script src="mainscript.js"></script>
+</body>
+</html>
