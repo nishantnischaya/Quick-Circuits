@@ -8,6 +8,8 @@ app.use('/', express.static(path.join(__dirname, 'public_html')))
 stages = []
 names = []
 
+const PORT = process.env.PORT || 3333
+
 app.get('/getframe', (req, res) => {
     res.send(stages)
 })
@@ -26,6 +28,6 @@ app.get('/name', (req, res) => {
     res.send('success')
 })
 
-app.listen(3333, () => {
+app.listen(PORT, () => {
     console.log('Server started on http://localhost:3333')
 }) 
